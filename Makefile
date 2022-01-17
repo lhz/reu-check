@@ -1,10 +1,12 @@
-X64SC=x64sc-3.5
+# Paths to executables
+X64SC=x64sc
+CL65=cl65
 
 default: run
 
 # Build test program
 reu-check.prg: reu-check.s linker.cfg
-	cl65 -t c64 -C linker.cfg -o $@ $<
+	$(CL65) -t c64 -C linker.cfg -o $@ $<
 
 # Build 256KB REU image with zeroes and our testdata at the end
 reu-image.bin: testdata
